@@ -1,0 +1,245 @@
+// 2021-02-22 GitHub
+$kon:#082848;
+$midori:#e3fcf4;
+$btn-color:#ec6d64;
+$white:#fff;
+$link-font:Verdana, Geneva, Tahoma, sans-serif;
+$font-size-section-title:32px;
+$font-size-pp:14px;
+
+@mixin flex-between{
+  display:flex;
+  justify-content: space-between;
+}
+
+
+
+body{
+  color: $kon;
+  font-family: $link-font;
+  line-height: 1.5;
+}
+/* -------------------------
+共通
+------------------------- */
+.container{
+  width:90%;
+  max-width:980px;
+  margin: auto;
+}
+.section{
+  padding:60px 0;
+}
+.section-title{
+  font-size: $font-size-section-title;
+  margin-bottom:40px;
+  text-align: center;
+  font-weight: bold;
+}
+/* -------------------------
+header
+------------------------- */
+header{
+  padding:20px 0;
+
+  & .container{
+    margin:0 auto;
+    display:flex;
+    justify-content: space-between;
+      }
+}
+.header-title{
+  font-size:20px ;
+  font-weight: bold;
+  line-height: 36px;
+}
+.header-right{
+  float:right;
+  line-height: 36px;
+}
+.header-nav{
+  display: flex;
+}
+.header-nav li{
+  margin-left:50px;
+}
+/* -------------------------
+top
+------------------------- */
+.top{
+  background: url(../img/main-vsual-nontitle.png);
+  background-size: cover;
+  text-align: center;
+  padding:80px 0;
+}
+.top-maintitle{
+  font-size:48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.top-subtitle{
+  font-size:18px;
+}
+/* -------------------------
+about
+------------------------- */
+.about-contents{
+  @include flex-between;
+}
+.about-left{
+  width:48%;
+}
+.about-pic{
+  width:100%;
+}
+.about-right{
+  width:48%;
+}
+/* -------------------------
+course
+------------------------- */
+.course{
+  background-color: $midori;
+}
+.course-item{
+  width:30%;
+}
+.course-img{
+  width:100%;
+}
+.course-contents{
+  @include flex-between;
+}
+/* -------------------------
+contact
+------------------------- */
+.contact{
+  text-align:center;
+}
+.contact p{
+  margin-bottom:20px;
+}
+input{
+  width:600px;
+  font-size:18px;
+  padding:15px;
+  border-radius:100px;
+  border:3px solid #d8d8d8;
+  margin-bottom: 20px;
+}
+.btn-register{
+  background-color: $btn-color;
+  color: $white;
+  border: none;
+  font-size:24px;
+  font-weight: bold;
+  padding:20px;
+  border-radius: 4px;
+}
+button:hover{
+  opacity: .7;
+}
+/* -------------------------
+footer
+------------------------- */
+footer{
+  background-color:$kon;
+  color: $white;
+  font-size:12px;
+  padding: 20px;
+  
+}
+footer .container{
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* -------------------------
+レスポンシブ対応 スマホ表示
+------------------------- */
+$breakpoints(
+  'sp': 'screen and (max-width:767px)'
+) !default;
+
+@include mq('sp'){
+  body{
+    width: 100%;
+  }
+  .section{
+    padding:80px 0;
+  }
+  .section-title{
+    font-size:24px;
+  }
+  /* -------------------------
+  header mq
+  ------------------------- */
+  header .container{
+    flex-direction: column;
+  }
+  .header-left{
+    text-align:center;
+  }
+  .header-nav li{
+    margin:0 auto;
+  }
+  /* -------------------------
+  top mq
+  ------------------------- */
+  .top{
+    padding:120px 0;
+  }
+  .top-maintitle{
+    font-size:32px;
+    width:90%;
+  }
+  .top-subtitle{
+    font-size:$font-size-pp;
+    width:90%;
+  }
+  /* -------------------------
+  about mq
+  ------------------------- */
+  .about-contents{
+    flex-direction: column;
+  }
+  .about-left{
+    width:100%;
+    padding-bottom: 30px;
+  }
+  .about-pic{
+    width:100%;
+  }
+  .about-right{
+    width:100%;
+    font-size:$font-size-pp;
+  }
+  /* -------------------------
+  course mq
+  ------------------------- */
+.course-contents{
+flex-direction: column;
+}
+.course-item{
+  width:100%;
+}
+.course-item p{
+  padding-bottom: 25px;
+  font-size:$font-size-pp;
+}
+  /* -------------------------
+  contact mq
+  ------------------------- */
+  .contact p{
+    font-size:$font-size-pp;
+  }
+  input[type="email"]{
+    width:100%;
+  }
+  /* -------------------------
+  footer mq
+  ------------------------- */
+  footer p{
+    font-size:10px;
+  }
+}
